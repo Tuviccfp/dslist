@@ -22,23 +22,30 @@ public class Game {
 	@Column(name = "game_year") //Customizo o nome de uma coluna na tabela. (Essa configuração é necessária porque ao criar o banco, a palavra year geraria conflito.
 	private Integer year;
 	private String genre;
-	private String platform;
+	private String platforms;
+	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	
+	//Defino que minha coluna é um texto, permitindo textos acimas de VARCHAR(255)
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	public Game() {
 		
 	}
 
-	public Game(Long id, String title, Integer year, String genre, String platform, String imgUrl,
+	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
 			String shortDescription, String longDescription) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.platform = platform;
+		this.platforms = platforms;
+		this.score = score;
 		this.imgUrl = imgUrl;
 		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
@@ -76,12 +83,20 @@ public class Game {
 		this.genre = genre;
 	}
 
-	public String getPlatform() {
-		return platform;
+	public String getPlatforms() {
+		return platforms;
 	}
 
-	public void setPlatform(String platform) {
-		this.platform = platform;
+	public void setPlatforms(String platforms) {
+		this.platforms = platforms;
+	}
+	
+	public Double getScore() {
+		return score;
+	}
+
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 	public String getImgUrl() {
